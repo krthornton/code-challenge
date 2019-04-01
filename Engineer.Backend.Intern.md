@@ -13,6 +13,8 @@ Imagine you are on a team tasked with constructing a constellation of microservi
 
 Below you will find a set of user stories assigned by your manager.
 
+Please clone this repository and add your code and questionaire responses to your repo.
+
 When you've completed your challenge, email eng_challenge_help@circadence.com. Include in your email:
 
 - your contact information
