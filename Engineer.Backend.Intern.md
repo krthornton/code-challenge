@@ -1,4 +1,5 @@
-# Circadence Engineering - Backend Developer 
+# Circadence Engineering - Backend Developer
+
 ## Intern Coding Challenge
 
 ## Instructions
@@ -7,18 +8,20 @@ Have you read the README.md file?
 
 Be sure to read these instructions completely before submitting your response.
 
-## Coding Challenge
+## Coding Challenge Description
 
-Imagine you are on a team tasked with constructing a constellation of microservices. You've been assigned to create a microservice that will handle keeping track of leaderboards for the various battle rooms in Project Ares.
+Imagine you are on a team tasked with constructing a constellation of microservices for our flagship product Project Ares.
+Existing game functionality allows players to compete in various arenas, called battle rooms, where they are scored on how well they complete various cybersecurity challenges.
+You've been assigned to create the microservice that will keep track of leaderboards for the various battle rooms in Project Ares.
 
-Below you will find a set of user stories assigned by your manager.
+Below you will find a set of user stories assigned by your team lead.
+Perform the work necessary to satisfy the requirements of the user stories.
 
-Please clone this repository and add your code and questionaire responses to your repo.
-
-When you've completed your challenge, email eng_challenge_help@circadence.com. Include in your email:
+In order to complete your challenge, you will need to clone the git repository at <https://gitlab.com/Circadence-Public/code-challenge> and add your solution to the cloned repository.
+When you've completed your challenge, email eng_challenge_help@circadence.com with:
 
 - your contact information
-- the URL for your git repository.
+- the URL of the git repo containing your solution to the coding challenge.
 
 Please include in your git repository:
 
@@ -27,7 +30,7 @@ Please include in your git repository:
     - documentation for building and running your application
 2. one folder containing your solution
 
-### Platform Choice
+### Platform Choices
 
 You can create the application in any platform and language of your choice.
 
@@ -47,7 +50,7 @@ Ensure the following requirements have been met.
 
 ### User Story 1
 
-As a **system that displays battleroom leaderboard**  
+As a **system that displays battleroom leaderboards**  
 I can **retrieve a player's rank in a battleroom session**  
 So that **after playing a battleroom, a player can know their rank**
 
@@ -62,15 +65,10 @@ Acceptance criteria
 
 - Executing this curl command will succeed and return the correct results
 
-    curl -X POST \
-      http://localhost:8080/rank \
-      -H 'Content-Type: application/json' \
-      -H 'cache-control: no-cache' \
-      -d '{
-        "player_id": "1",
-        "battleroom_id": "1",
-        "score":"100"
-    }
+    curl http://localhost:8080/rank \
+    -H 'Content-Type: application/json' \
+    -H 'cache-control: no-cache' \
+    -d '{"player_id": "1", "battleroom_id": "1", "score":"100" }'
 
     Note: This is an example and may change based upon your implementation.
 
@@ -87,22 +85,19 @@ Acceptance criteria
 - Given the same battleroom play as User Story 1
 - Executing this curl command will succeed and return the correct results
 
-    curl -X POST \
-      http://localhost:8080/median \
-      -H 'Content-Type: application/json' \
-      -H 'cache-control: no-cache' \
-      -d '{
-        "battleroom_id": "30"
-    }
+curl -X GET http://localhost:8080/leaderboard \
+-H 'Content-Type: application/json' \
+-H 'cache-control: no-cache' \
+-d '{"battleroom_id":"30"}'
 
-- The results will include: ordered leaderboard - include player id and score, and battleroom median score
+- The results will include: an ordered leaderboard - include player id and score, and battleroom median score
 
 ## Questions for You
 
-1. How long did you spend on the coding test? 
+1. How long did you spend on the coding challenge?
 2. What would you add to your solution if you had more time? If you didn't spend much time on the coding test then use this as an opportunity to explain what you would add.
 3. Explain your choice of technologies used.  Discuss any trade-offs.
-4. If you were going to test this, how would you do that?
+4. If you were going to test this, how would you do about doing that? What would you test for?
 5. How would you handle a new user story to get a player's rank and median battleroom score by username?
 
 ## Thank you for your time
