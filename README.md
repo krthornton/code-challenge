@@ -1,33 +1,35 @@
 # Circadence Engineer Recruitment Test
 
-## About Circadence
+## Setup
 
-Circadence Corporation is the market leader in next-generation cybersecurity readiness.
+asdf
 
-Our history of software advancement, multi-player game development, and a deep understanding of application optimization allows us to help develop cyber professionals who are problem-solvers, critical thinkers, and passionate about protecting and defending their organization.
+## Example Queries
 
-Project Ares allows cyber teams from across enterprise, government, and academic institutions to automate and augment the cyber workforce by providing immersive, gamified cyber range learning environments that emulate company networks. Realistic scenarios engage teams in immersive, mission-specific virtual environments using real-world tools, network activity and a large library of authentic threat scenarios.
+Example command for User Story 1:
+curl localhost:8000/rank/ -H "Content-Type: application/json" -H "cache-control: no-cache" -d "{\"player_id\": \"1\", \"battleroom_id\": 30}"
 
-## Engineering Applicant Coding Challenges
+Example command for User Story 2:
+curl -X GET localhost:8000/leaderboard/ -H "Content-Type: application/json" -H "cache-control: no-cache" -d "{\"battleroom_id\": \"30\"}"
 
-Most engineering positions require an applicant to complete a coding challenge.
-The coding challenges are located at <https://gitlab.com/Circadence-Public/code-challenge.>  Each application category has a corresponding test described in a file of the following format:  
+## Questions
 
-{applicationCategory}.{applicationArea}.{applicationLevel}.md
+1. How long did you spend on the coding challenge?
+Overall, I spent about three weeks working on this but this is because of a lack of free time. I probably only spent about three days working on this project.
 
-E.g., the markdown file Engineer.Backend.Intern.md contains the instructions and questions for completing a challenge
-    for the **Engineer**ing team
-    as a **Backend** Developer
-    at the **Intern** level
+2. What would you add to your solution if you had more time?
+Currently the ranking system for scores is "hard-coded" meaning that ranks are assigned as a score is added to the database. I would have liked to make it
+so that rankings are done automatically based off of the user score.
 
-Each challenge will have the following sections:
+3. Explain your choice of technologies used.  Discuss any trade-offs.
+I chose django primarily because I have prior experience working with it. Django was a great choice because of its simplicity and ability to get a working
+"proof of concept" done in a small amount of time. It also provides growing room for taking the project to production.
 
-- a description of the Coding Challenge
-- a description of Platform Choices
-- the Task Requirements that specifies minimum requirements for completion and any optional requirements
-- one or more user stories that pertain to the challenge
-- acceptance criteria for the user stories
-- a questionaire to be completed as part of the challenge
+4. If you were going to test this, how would you do about doing that? What would you test for?
+If this is something that would be used directly by a user, I would want to test how different "bad" inputs are handled by the microservice. Testing for SQL
+injection would be a big concern and perhaps even load testing if this is something that would be used by a lot of people.
 
-Email any coding challenge related questions to: eng_challenge_help@circadence.com
-
+5. How would you handle a new user story to get a player's rank and median battleroom score by username?
+Assuming players' usernames would be unique, this would not be hard to implement. First I would add a new attribute to the Player model called "username" and
+then add an if statement that parses and looks for "username" in the POST data from localhost:8000/rank/. Next I would find the matching battleroom and get
+all the scores that the player has in said battleroom. This could then be used to find the median and return a JSON response just like the other requests.
