@@ -2,7 +2,7 @@
 
 ## Setup
 
-__This setup assumes that the user uses Pycharm Professional__
+__This setup guide assumes that the user tests with Pycharm__
 1. Clone repo using Pycharm
 2. Create new VENV using Python 3.7
 3. Open mysite\manage.py and click "Install Requirements" on the yellow banner that shows up at the top
