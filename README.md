@@ -2,15 +2,20 @@
 
 ## Setup
 
-asdf
+__This setup assumes that the user uses Pycharm Professional__
+1. Clone repo using Pycharm
+2. Create new VENV using Python 3.7
+3. Open mysite\manage.py and click "Install Requirements" on the yellow banner that shows up at the top
+4. Open a Terminal in Pycharm (should be located towards the bottom left of the screen) and run `python mysite\manage.py runserver`
+5. Run some of the below example queries and test to your heart's content
 
 ## Example Queries
 
 Example command for User Story 1:
-curl localhost:8000/rank/ -H "Content-Type: application/json" -H "cache-control: no-cache" -d "{\"player_id\": \"1\", \"battleroom_id\": 30}"
+`curl localhost:8000/rank/ -H "Content-Type: application/json" -H "cache-control: no-cache" -d "{\"player_id\": \"1\", \"battleroom_id\": 30}"`
 
 Example command for User Story 2:
-curl -X GET localhost:8000/leaderboard/ -H "Content-Type: application/json" -H "cache-control: no-cache" -d "{\"battleroom_id\": \"30\"}"
+`curl -X GET localhost:8000/leaderboard/ -H "Content-Type: application/json" -H "cache-control: no-cache" -d "{\"battleroom_id\": \"30\"}"`
 
 ## Questions
 
